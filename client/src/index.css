@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+.img-move{
+    animation: animation 4s linear infinite;
+}
+
+@keyframes animation{
+    0%{
+        transform: scale(1);
+    }
+    10%{
+        transform: scale(1.01);
+    }
+    20%{
+        transform: scale(1.02);
+    }
+    30%{
+        transform: scale(1.03);
+    }
+    40%{
+        transform: scale(1.04);
+    }
+    50%{
+        transform: scale(1.05);
+    }
+    60%{
+        transform: scale(1.04);
+    }
+    70%{
+        transform: scale(1.03);
+    }
+    80%{
+        transform: scale(1.02);
+    }
+    90%{
+        transform: scale(1.01);
+    }
+    100%{
+        transform: scale(1.0);
+    }
+}
+
+
+
+
