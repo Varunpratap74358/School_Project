@@ -5,7 +5,7 @@ import cors from 'cors'
 import cookieParser from 'cookie-parser'
 import {errorMiddleware} from './middleware/error.js'
 import studentRouter from './route/studentRoute.js'
-
+import path from 'path'
 
 const app = express()
 
@@ -39,6 +39,21 @@ mongoose.connect(process.env.MONGOURL)
 
 
 app.use(errorMiddleware)
+
+
+// code for deployment
+if(process.env.NODE_ENV='production'){
+    const dirPath = path.resolve()
+    app.use(express.static('./client/dist'))
+    app.get("*",(req,res)=>{
+        res.sendFile(path.resolve(dirPath,'./client/dist','index.html'))
+    })
+}
+
+
+
+
+
 app.listen(port,()=>{
     console.log(`Port is running on ${port}`)
 })
